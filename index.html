@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakuja FM // Tokyo Ghoul Audio Player</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><circle cx=%2250%22 cy=%2250%22 r=%2222%22 fill=%22red%22/><circle cx=%2250%22 cy=%2250%22 r=%228%22 fill=%22black%22/><path d=%22M15,50 Q50,15 85,50 Q50,85 15,50 Z%22 fill=%22none%22 stroke=%22%23222%22 stroke-width=%224%22/></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="spider-lily-container">
+                <svg viewBox="0 0 100 100" class="spider-lily-icon">
+                    <path d="M50,90 Q50,40 50,10 M50,50 Q30,30 10,40 M50,50 Q70,30 90,40 M50,60 Q20,50 5,70 M50,60 Q80,50 95,70 M50,40 Q25,15 20,5 M50,40 Q75,15 80,5" stroke="#d60007" stroke-width="2" fill="none"/>
+                    <circle cx="50" cy="40" r="2" fill="#ff1a22"/>
+                </svg>
+            </div>
+
+            <div class="logo">
+                <i class="fa-solid fa-mask"></i> <span>Kakuja FM</span>
+            </div>
+            <nav class="menu">
+                <a href="#" class="active"><i class="fa-solid fa-house"></i> Distrito 20</a>
+                <a href="#" id="search-nav"><i class="fa-solid fa-magnifying-glass"></i> Rastrear</a>
+                <a href="#"><i class="fa-solid fa-layer-group"></i> Arquivos CCG</a>
+            </nav>
+            <div class="playlists">
+                <h4>PLAYLISTS</h4>
+                <ul>
+                    <li><button class="playlist-btn" onclick="filterPlaylist('Anteiku')">☕ Anteiku Vibes</button></li>
+                    <li><button class="playlist-btn" onclick="filterPlaylist('Aogiri')">🩸 Aogiri Tree</button></li>
+                    <li><button class="playlist-btn" onclick="filterPlaylist('Laboratorio')">🧪 Kaneki Core</button></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Qual é o seu lado? Humano ou Ghoul...">
+                </div>
+            </header>
+
+            <section class="hero-section">
+                <div class="floating-card left-card">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300" alt="Capa">
+                    <div class="card-badge">1000 - 7?</div>
+                </div>
+
+                <div class="hero-center">
+                    <h1 class="hero-title">O VAZIO <span class="highlight">HUMANO.</span></h1>
+                    <p class="hero-subtitle">"Estou errado... Não é o mundo que está errado, são as engrenagens que estão distorcidas."</p>
+                    <div class="cta-group">
+                        <button class="btn-play-hero" onclick="playFirstSong()">Despertar (Unravel)</button>
+                    </div>
+                </div>
+
+                <div class="floating-card right-card">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=300" alt="Capa">
+                    <div class="card-badge">Olho Vermelho</div>
+                </div>
+            </section>
+
+            <section class="music-section">
+                <h2 class="section-title">Trilhas de Mutação</h2>
+                <div class="music-grid" id="music-grid">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="music-player">
+        <div class="track-info">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=80" alt="Capa" id="player-img">
+            <div>
+                <h4 id="player-title">Selecione uma faixa</h4>
+                <p id="player-artist">Kakuja Engine</p>
+            </div>
+            <i class="fa-regular fa-heart vibe-heart" onclick="this.classList.toggle('fa-solid'); this.classList.toggle('fa-regular')"></i>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button><i class="fa-solid fa-shuffle"></i></button>
+                <button onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></button>
+                <button class="play-main" id="main-play-btn" onclick="togglePlay()"><i class="fa-solid fa-play"></i></button>
+                <button onclick="nextTrack()"><i class="fa-solid fa-forward-step"></i></button>
+                <button><i class="fa-solid fa-arrows-rotate"></i></button>
+            </div>
+            <div class="progress-container">
+                <span id="curr-time">0:00</span>
+                <div class="progress-bar" id="progress-bar-click" onclick="seekAudio(event)">
+                    <div class="progress" id="progress-line"></div>
+                </div>
+                <span id="total-time">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.7" oninput="changeVolume(this.value)">
+        </div>
+    </footer>
+
+    <audio id="audio-element"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
