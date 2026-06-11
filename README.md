@@ -18,4 +18,7 @@ Um player de música web minimalista e cirúrgico inspirado na estética dark/ne
 1. **Unravel** – TK from Ling Tosite Sigure (Áudio genérico de teste 1)
 2. **Asphyxia** – Cö shu Nie (Áudio genérico de teste 2)
 3. **Katharsis** – TK from Ling Tosite Sigure (Áudio genérico de teste 3)
-4. **Glassy Sky** – Donna Burke (Á
+4. **Glassy Sky** – Donna Burke
+
+ ## 🌐 Clique Abaixo para Ouvir Online!
+> ### 🎧 [Acessar o Kakuja FM Web Player](https://fabiopy-creator.github.io/kakuja-FM/)
